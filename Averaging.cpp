@@ -6,30 +6,30 @@
 * reset() - resets all internal variables to show zero samples
 *********************************************************************/
 uint16_t Average::get_samples(){
-    return _samples_added;
+	return _samples_added;
 }
 
 void Average::reset(){
-    _samples_added = 0;
+	_samples_added = 0;
 	_index = 0;
 	_total = NULL;
-	memset(_samples, 0, _size * _bytesize); // zero all samples
+	memset((char*)_samples, 0, _size * _bytesize); // zero all samples
 }
 
 /*********************************************************************
 * Specific implementation of Averaging class for 8 bit signed integers
 *********************************************************************/
 int8_Average::int8_Average(uint16_t array_size){
-    _size = array_size;
-    _bytesize = 1;
-    _samples = new int8_t [_size];
+	_size = array_size;
+	_bytesize = 1;
+	_samples = new int8_t [_size];
 	reset();
 }
 
 void int8_Average::add_sample(int8_t sample){
-    if (_total == NULL){
-        _total = new int16_t();
-    }
+	if (_total == NULL){
+		_total = new int16_t();
+	}
 	*((int16_t *)_total) -= ((int8_t *)_samples)[_index]; // subtract old value from total
 	((int8_t *)_samples)[_index] = sample; // add the sample to list
 	*((int16_t *)_total) += sample; // add new value to total
@@ -56,16 +56,16 @@ int8_t int8_Average::get_average(){
 * Specific implementation of Averaging class for 8 bit unsigned integers
 *********************************************************************/
 uint8_Average::uint8_Average(uint16_t array_size){
-    _size = array_size;
-    _bytesize = 1;
-    _samples = new uint16_t [_size];
+	_size = array_size;
+	_bytesize = 1;
+	_samples = new uint16_t [_size];
 	reset();
 }
 
 void uint8_Average::add_sample(uint8_t sample){
-    if (_total == NULL){
-        _total = new uint8_t();
-    }
+	if (_total == NULL){
+		_total = new uint8_t();
+	}
 	*((uint16_t *)_total) -= ((uint8_t *)_samples)[_index]; // subtract old value from total
 	((uint8_t *)_samples)[_index] = sample; // add the sample to list
 	*((uint16_t *)_total) += sample; // add new value to total
@@ -92,16 +92,16 @@ uint8_t uint8_Average::get_average(){
 * Specific implementation of Averaging class for 16 bit signed integers
 *********************************************************************/
 int16_Average::int16_Average(uint16_t array_size){
-    _size = array_size;
-    _bytesize = 2;
-    _samples = new int16_t [_size];
+	_size = array_size;
+	_bytesize = 2;
+	_samples = new int16_t [_size];
 	reset();
 }
 
 void int16_Average::add_sample(int16_t sample){
-    if (_total == NULL){
-        _total = new int32_t();
-    }
+	if (_total == NULL){
+		_total = new int32_t();
+	}
 	*((int32_t *)_total) -= ((int16_t *)_samples)[_index]; // subtract old value from total
 	((int16_t *)_samples)[_index] = sample; // add the sample to list
 	*((int32_t *)_total) += sample; // add new value to total
@@ -128,16 +128,16 @@ int16_t int16_Average::get_average(){
 * Specific implementation of Averaging class for 16 bit signed integers
 *********************************************************************/
 uint16_Average::uint16_Average(uint16_t array_size){
-    _size = array_size;
-    _bytesize = 2;
-    _samples = new uint16_t [_size];
+	_size = array_size;
+	_bytesize = 2;
+	_samples = new uint16_t [_size];
 	reset();
 }
 
 void uint16_Average::add_sample(uint16_t sample){
-    if (_total == NULL){
-        _total = new uint32_t();
-    }
+	if (_total == NULL){
+		_total = new uint32_t();
+	}
 	*((uint32_t *)_total) -= ((uint16_t *)_samples)[_index]; // subtract old value from total
 	((uint16_t *)_samples)[_index] = sample; // add the sample to list
 	*((uint32_t *)_total) += sample; // add new value to total
