@@ -10,8 +10,7 @@ class Average
     public:
         uint16_t get_samples();
 		void reset();
-//  private:
-//  protected :
+    protected :
 	    uint16_t _size;
 	    uint8_t _bytesize;
 		uint16_t _samples_added = 0;
