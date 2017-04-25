@@ -1,0 +1,30 @@
+#######################################
+# Syntax Coloring Map For Test
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+int8_Average	KEYWORD1
+uint8_Average	KEYWORD1
+int16_Average	KEYWORD1
+uint16_Average	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+add_sample	KEYWORD2
+get_average	KEYWORD2
+get_samples	KEYWORD2
+reset	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
